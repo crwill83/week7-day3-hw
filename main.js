@@ -32,11 +32,14 @@ const createPokemon = (pokemon) => {
     const my_h4 = document.createElement('h4');
     const my_img = new Image(100,100)
     my_h4.innerText = pokemon.name;
-    my_h4.className = 'list-group-item list-group-item-action list-group-item-light pokedex';
+    my_h4.className = 'card pokedex';
+    my_h4.id = 'card'
     my_img.src = pokemon.sprites.other.dream_world.front_default
+    my_img.className = 'card-img-top'
     // got the right link to the image but doesn't seem to be doing anything
-    document.querySelector('section.list-group').insertAdjacentElement('beforeend', my_h4);
-    document.querySelector('section.list-group').insertAdjacentElement('beforeend', my_img);
+    document.querySelector('section.list-group').insertAdjacentElement('beforeend', my_h4, my_img);
+    my_h4.appendChild(my_img)
+
 
     console.log(pokemon.sprites.other.dream_world.front_default);
 };
